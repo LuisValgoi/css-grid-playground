@@ -4,6 +4,10 @@ To learn more about CSS Grid.
 
 It was used [this](https://www.youtube.com/watch?v=HN1UjzRSdBk&ab_channel=Rocketseat) tutorial as reference.
 
+# Status
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c2343a81-277d-43fe-8263-b2040578f531/deploy-status)](https://app.netlify.com/sites/css-grid-playground/deploys)
+
 # Grid Motivation
 
 - RAW HTML Renders elements all below each others.
