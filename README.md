@@ -1,70 +1,116 @@
-# Getting Started with Create React App
+# Repo Goal
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+To learn more about CSS Grid.
 
-## Available Scripts
+It was used [this](https://www.youtube.com/watch?v=HN1UjzRSdBk&ab_channel=Rocketseat) tutorial as reference.
 
-In the project directory, you can run:
+# Grid Motivation
 
-### `yarn start`
+- RAW HTML Renders elements all below each others.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- In the very beggining `float` and `table` came up to try to solve.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- They did. Partially.
 
-### `yarn test`
+- But, another better approach came up: Flexbox.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- It has changed the way elements structure were organized.
 
-### `yarn build`
+- Axis `x` and `y` could provide a bunch of flexibility that before we couldn't.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- But it wasn't enough. It was onedimensional. Then, CSS Grid have arrived.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- It basically create a 2D (bi-dimensional) approach. With rows and columns.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Grid vs Flexbox
 
-### `yarn eject`
+- one fills the gap of others.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- `GRIDs`: works for the layout limits. Page structure.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- `FLEXBOXEs`: works for the elements itself. Components structure.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Notes
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- `1fr`: means 1 Flex. 1 fraction.
 
-## Learn More
+- `vh`: means viewport height.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- `gridGap`: 20px stands for `grid-row-gap`: 20px and `grid-column-gap`: 20px.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- `grid-<column||row>-<start||end>`: will depend on the virtual lines of your structure. The amount changes according to how much columns/rows you want.
 
-### Code Splitting
+  - lets say you have a 2 columns grid.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  - you will have 3 slots where you can start or end your grid-item.
 
-### Analyzing the Bundle Size
+- `grid-<column||row>: 3/4` its the same as the `grid-<column||row>-start: 3` + `grid-<column||row>-end:4`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- `grid-template-areas`:
 
-### Making a Progressive Web App
+```
+.container {
+  ...
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 20vh 70vh 10vh;
+  grid-template-areas: "h h"
+                        "m a"
+                        "f f
+}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+.header {
+  ...
+  grid-area: h;
+}
 
-### Advanced Configuration
+.main {
+  ...
+  grid-area: m;
+}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+.aside {
+  ...
+  grid-area: a;
+}
 
-### Deployment
+.footer {
+  ...
+  grid-area: f;
+}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```
 
-### `yarn build` fails to minify
+# Properties
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Containers
+
+- `display: grid`: says that its a grid.
+
+- `grid-template-columns`: says how many columns my container will have.
+
+- `grid-template-rows`: says how many rows my container will have.
+
+- `grid-template-areas`: .
+
+- `grid-gap`: says about the spacing/gaps on:
+
+  - `grid-column-gap`: says about the spacing on the column.
+
+  - `grid-row-gap`: says about the spacing on the row.
+
+### Items
+
+- `grid-column`: says about where the item will be placed on the column.
+
+  - `grid-column-start`: its the verbose way to write. it represents where te item will start on your columns virtual lines.
+
+  - `grid-column-end`: its the verbose way to write. it represents where te item will ends on your columns virtual lines.
+
+- `grid-row`: says about where the item will be placed on the row.
+
+  - `grid-row-start`:its the verbose way to write. it represents where te item will start on your rows virtual lines.
+
+  - `grid-row-end`: its the verbose way to write. it represents where te item will ends on your rows virtual lines.
+
+- `grid-area`: says about where the item will be placed on the area. (applicable only with `grid-template-areas`).
