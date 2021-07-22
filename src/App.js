@@ -23,6 +23,9 @@ export default function App() {
       </Nav>
       <>
         <Switch>
+          <Route path="/" exact>
+            <First />
+          </Route>
           <Route path="/first" exact>
             <First />
           </Route>
