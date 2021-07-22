@@ -48,42 +48,9 @@ It was used [this](https://www.youtube.com/watch?v=HN1UjzRSdBk&ab_channel=Rocket
 
   - you will have 3 slots where you can start or end your grid-item.
 
-- `grid-<column||row>: 3/4` its the same as the `grid-<column||row>-start: 3` + `grid-<column||row>-end:4`.
+- `grid-<column||row>: 3/4` its the same as the `grid-<column||row>-start: 3` + `grid-<column||row>-end:4`. Take a look into the 1st example.
 
-- `grid-template-areas`:
-
-```
-.container {
-  ...
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  grid-template-rows: 20vh 70vh 10vh;
-  grid-template-areas: "h h"
-                        "m a"
-                        "f f
-}
-
-.header {
-  ...
-  grid-area: h;
-}
-
-.main {
-  ...
-  grid-area: m;
-}
-
-.aside {
-  ...
-  grid-area: a;
-}
-
-.footer {
-  ...
-  grid-area: f;
-}
-
-```
+- `grid-template-areas`: shortcut for all the `grid-<column||row>-<start||end>`. Take a look into the 2nd example.
 
 # Properties
 
